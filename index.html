@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DevWhisper - Voice Developer Assistant</title>
+  <style>
+    body {
+      background: #0f0f0f;
+      color: white;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+    p { color: #aaa; margin-bottom: 2rem; }
+  </style>
+</head>
+<body>
+  <h1>🎙️ DevWhisper</h1>
+  <p>Voice-Native Developer Experience Agent</p>
+  <div id="vapi-button"></div>
+
+  <script>
+    var vapiInstance = null;
+    const script = document.createElement("script");
+    script.src = "https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js";
+    script.onload = function () {
+      vapiInstance = window.vapiSDK.run({
+        apiKey: "70313d3c-7d70-45b0-8f81-81cc12b27b11",
+        assistant: "2ac88ad3-0400-465c-af11-b89be7b70a7b",
+        config: {
+          position: "bottom-right",
+          offset: "40px",
+          width: "50px",
+          height: "50px",
+          idle: { color: "#7c3aed", type: "round", icon: "https://unpkg.com/lucide-static@0.321.0/icons/mic.svg" },
+          loading: { color: "#7c3aed", type: "round" },
+          active: { color: "#22c55e", type: "round" }
+        }
+      });
+    };
+    document.body.appendChild(script);
+  </script>
+</body>
+</html>
